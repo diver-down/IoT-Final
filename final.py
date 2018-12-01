@@ -12,6 +12,8 @@ from datetime import datetime
 
 # Import the Data from the CSV
 data = read_csv('data.csv')
+print(type(data))
+print (data)
 cpu  = data['CPU Usage %']
 temp = data['Temperature C']
 print(type(cpu))
@@ -40,8 +42,8 @@ print("############")
 print(type(cpu))
 print("^^^^^^^^^^^^")
 plt.figure()
-plt.boxplot(cpu, 1, 'rs', 0)
-plt.xlabel('CPU Usage [%]')
+plt.boxplot(cpu, 1)
+plt.ylabel('CPU Usage [%]')
 plt.title('Box Plot of CPU Usage')
 plt.grid()
 plt.show()

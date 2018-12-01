@@ -10,6 +10,7 @@ data = np.concatenate((spread, center, flier_high, flier_low), 0)
 
 # basic plot
 print(type(data))
+print(data)
 plt.boxplot(data)
 
 # notched plot
