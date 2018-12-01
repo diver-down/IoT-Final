@@ -35,6 +35,7 @@ plt.show()
 
 # Box Plot of CPU
 print(cpu)
+print("############")
 print(type(cpu))
 plt.figure()
 plt.boxplot(cpu, 1, 'rs', 0)
