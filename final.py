@@ -14,13 +14,14 @@ from datetime import datetime
 data = read_csv('data.csv')
 cpu  = data['CPU Usage %']
 temp = data['Temperature C']
-time = np.array([datetime.datetime(data['Time'])])
+#time = np.array([datetime.datetime(data['Time'])])
 
 # NOTE: TODO: Include title and labels and legend
 
 # Time Series of Time-vs-CPU
+t = np.arange(len(cpu))
 plt.figure()
-plt.plot(time,cpu)
+plt.plot(t,cpu)
 plt.title('CPU Use -vs- Time')
 plt.xlabel('Time [Absolute]')
 plt.ylabel('CPU Use [%]')
@@ -33,6 +34,8 @@ plt.show()
 # Histogram of Temperature
 
 # Box Plot of CPU
+print(cpu)
+print(type(cpu))
 plt.figure()
 plt.boxplot(cpu, 1, 'rs', 0)
 plt.xlabel('CPU Usage [%]')
@@ -47,5 +50,3 @@ plt.show()
 # Cross-validation prediction with temperature as target
 
 #l = [slope * i + intercept for i in x]
-
-
