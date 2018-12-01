@@ -36,7 +36,8 @@ plt.show()
 # Box Plot of CPU
 print(cpu)
 print("############")
-print(type(cpu))
+print(type(cpu))  #########
+print("^^^^^^^^^^^^")
 plt.figure()
 plt.boxplot(cpu, 1, 'rs', 0)
 plt.xlabel('CPU Usage [%]')
