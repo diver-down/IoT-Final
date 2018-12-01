@@ -14,6 +14,7 @@ from datetime import datetime
 data = read_csv('data.csv')
 cpu  = data['CPU Usage %']
 temp = data['Temperature C']
+print(type(cpu))
 #time = np.array([datetime.datetime(data['Time'])])
 
 # NOTE: TODO: Include title and labels and legend
@@ -36,7 +37,7 @@ plt.show()
 # Box Plot of CPU
 print(cpu)
 print("############")
-print(type(cpu))  #########
+print(type(cpu))
 print("^^^^^^^^^^^^")
 plt.figure()
 plt.boxplot(cpu, 1, 'rs', 0)
