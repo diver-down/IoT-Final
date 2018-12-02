@@ -21,7 +21,7 @@ temp = data['Temperature C']
 # Histogram of CPU %
 plt.figure()
 numBins = 100
-plt.hist(cpu, numBins, density=1, facecolor='blue', alpha=0.6 )
+plt.hist(cpu, numBins, normed=1, facecolor='blue', alpha=0.6 )
 plt.title('Histogram of CPU Use % Probability')
 plt.xlabel('CPU Use [%]')
 plt.ylabel('Probability')
@@ -30,7 +30,7 @@ plt.subplots_adjust(left=0.2) # tweak spacing for y-label
 # Histogram of Temp
 plt.figure()
 numBins = 30
-plt.hist(temp, numBins, density=1, facecolor='red', alpha=0.6 )
+plt.hist(temp, numBins, normed=1, facecolor='red', alpha=0.6 )
 plt.title('Histogram of CPU Temperature Probability')
 plt.xlabel('Temperature [˚C]')
 plt.ylabel('Probability')
