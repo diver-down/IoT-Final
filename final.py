@@ -37,7 +37,7 @@ plt.ylabel('Probability')
 plt.subplots_adjust(left=0.2) # tweak spacing for y-label
 
 # Time Series of Time-Temp-vs-CPU
-t = np.arange(len(cpu))
+t = np.arange(len(cpu)) #serves as our time and index
 plt.figure()
 plt.plot(t,cpu)
 plt.plot(t,temp)
@@ -71,15 +71,24 @@ plt.ylabel('Temperature [˚C]')
 plt.grid()
 
 # Cross-validation prediction with temperature as target
-#plt.figure()
+"""
+Your cross-validation should have as many data points as the regression plot.
+The array x should have two columns: index and CPU usage. The target y is temperature.
+"""
+tColumn = t.reshape(-1,1)  # this reshapes array (t) from a row into a column
+dataStackCPU = np.column_stack((t,cpu)) # combining index array (t) with CPU array
+dataStackTemp = np.column_stack((t,temp)) # combining index array (t) with CPU array
 lr = linear_model.LinearRegression()
-print('Number of instances: %d' % (cpu.shape[0]))
-dataStack = (np.column_stack((cpu[:150],temp[:150])))
-print("Data Stack:")
-print(dataStack)
-predicted = cross_val_predict(lr, dataStack, cpu[:150], cv=3)
+#  print('Number of instances: %d' % (cpu.shape[0]))
+# dataStack = (np.column_stack((cpu[:150],temp[:150])))
+#dataStack = ()
+#print("Data Stack:")
+#print(dataStack)
+predicted = cross_val_predict(lr, dataStackCPU, dataStackTemp, cv=3)
+
 fig, ax = plt.subplots()  # unsure if this CV is done properly
-ax.scatter(temp[:150], predicted)
+
+# ax.scatter(temp[:150], predicted)
 ax.plot([0, 100], [0, 100], 'k-', lw=2)
 # alternate:
 # ax.plot([temp.min(), temp.max()], [temp.min(), temp.max()], 'k-', lw=2)
