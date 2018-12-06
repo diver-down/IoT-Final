@@ -1,6 +1,5 @@
 # C. Drew    ///   Final Exam, November 2018
-# EE-629 Internet of Things   ///   Professor Kevin Lu
-# Stevens Institute of Technology, Hoboken NJ
+# Internet of Things   ///   Professor K. Lu
 # TLDR: Take a CSV of Time-CPU%-Temp data and analyze it
 
 import matplotlib.pyplot as plt
@@ -79,29 +78,10 @@ tColumn = t.reshape(-1,1)  # this reshapes array (t) from a row into a column
 dataStackCPU = np.column_stack((tColumn,cpu)) # combining index array (t) with CPU array
 dataStackTemp = np.column_stack((tColumn,temp)) # combining index array (t) with CPU array
 lr = linear_model.LinearRegression()
-#  print('Number of instances: %d' % (cpu.shape[0]))
-# dataStack = (np.column_stack((cpu[:150],temp[:150])))
-#dataStack = ()
-#print("Data Stack:")
-#print(dataStack)
 predicted = cross_val_predict(lr, dataStackCPU, dataStackTemp, cv=10)
-print(predicted)
-print(type(predicted))
-
-fig, ax = plt.subplots()  # unsure if this CV is done properly
-#ax.scatter(predicted[:,0], predicted[:,1])
-print(temp)
-print(type(temp))
-print("$%@^&*^&*%^&*&%^&^%&")
-print(predicted)
-print(type(predicted))
+fig, ax = plt.subplots()
 ax.scatter(temp, predicted[:,1])
-#ax.matshow(predicted)
-# ax.scatter(temp,predicted)
-#ax.plot([35, 90], [35, 90], 'k-', lw=2)
-# alternate:
 ax.plot([temp.min(), temp.max()], [temp.min(), temp.max()], 'k-', lw=2)
-#ax.set_ylim(bottom = 0, top = 100)
 plt.title('Cross-Validation Predition for Temperature')
 plt.xlabel('Measured')
 plt.ylabel('Predicted')
